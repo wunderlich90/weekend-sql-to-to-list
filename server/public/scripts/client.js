@@ -11,7 +11,7 @@ function getTasksData() {
     $('#viewTasks').empty();
     $.ajax({
         type: 'GET',
-        url: '/tasksLibrary'
+        url: '/tasks'
     }).then(function (response) {
         console.log('pancakes', response);
         // append data to the DOM
@@ -31,8 +31,25 @@ function getTasksData() {
         }
         
     })
-}
+} // end getTasksData
 
 function postTasksData() {
-
+    // becomes req.body
+    let taskObject = {
+        task: $('#task').val(),
+        addedBy: $('#addedBy').val(),
+        dateAdded: $('#dateAdded').val(),
+        deadline: $('#deadline').val()
+    }
+    $.ajax({
+        type: 'POST',
+        url: '/tasks',
+        data: 'taskObject'
+    }).then(function(respons) {
+        $('#task').val(''),
+        $('#addedBy').val(''),
+        $('#dateAdded').val(''),
+        $('#deadline').val('')
+        getTasksData();
+    })
 }
