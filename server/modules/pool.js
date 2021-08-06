@@ -1,8 +1,8 @@
-const { builtinModules } = require('module');
+//const { builtinModules } = require('module');
 const pg = require('pg');
 
 const config = {
-    database: weekend_to_do_app,
+    database: 'weekend_to_do_app',
     host: 'localhost',
     port: 5432,
 };
@@ -19,4 +19,4 @@ pool.on('error', (err) => {
     
 });
 
-modules.exports = pool;
+module.exports = pool;
