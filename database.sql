@@ -1,4 +1,5 @@
-	--Define columns
+CREATE TABLE "tasks" (
+    --Define columns
 	"task" VARCHAR(250),
 	"addedBy" VARCHAR(80) not null,
 	"dateAdded" date,
