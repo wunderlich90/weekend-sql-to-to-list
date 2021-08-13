@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
         INSERT INTO "tasks" 
             ("task", "addedBy", "dateAdded", "deadline")
         VALUES 
-            ($1, $2, $3, $4, $5);
+            ($1, $2, $3, $4);
     `;
     let sqlParams = [
         req.body.task,
@@ -60,7 +60,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     console.log('id is', req.params.id);
     const sqlQuery = `
-        UPDATE "task"
+        UPDATE "tasks"
+        SET "completed" = true
         WHERE "id" = $1;
     `;
     const sqlParams = [

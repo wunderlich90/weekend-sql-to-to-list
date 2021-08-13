@@ -22,6 +22,7 @@ function getTasksData() {
                 <tr data-id="${response[i].id}">
                     <td>${response[i].task}</td>
                     <td>${response[i].addedBy}</td>
+                    <td>${response[i].completed}</td>
                     <td>${response[i].dateAdded}</td>
                     <td>${response[i].deadline}</td>                      
                     <td>
